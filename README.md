@@ -1,3 +1,6 @@
+**Если у вас старый репозиторий**
+`git pull origin`
+
 **Как запушить свою ветку**
 1. Клонируем репозиторий `git clone git@github.com:ArGon143/JFD-hackathon-1-.git`
 2. Создаем свою ветку локально `git checkout -b имя_ветки`
