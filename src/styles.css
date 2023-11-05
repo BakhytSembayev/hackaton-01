@@ -6,6 +6,22 @@
     box-sizing: border-box;
 }
 
+.clickPrint {
+    background-image: url('../src/assets/clickPrint.png');
+    display: block;
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    z-index: 20;
+}
+
+.target_lick {
+  background-image: url('../src/assets/target.png');
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
 body {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;

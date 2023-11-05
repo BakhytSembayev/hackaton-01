@@ -1,7 +1,12 @@
 import './styles.css';
 import { ShapeModule } from './modules/shape.module';
+import '../src/modules/modal.css'
+import {ClicksModule} from './modules/clicks.module';
 import { BackgroundModule } from './modules/background.module';
 import { CanvasParticlesModule } from './modules/canvasParticles.module';
+
+let click = new ClicksModule();
+click.trigger();
 
 const shapeModule = new ShapeModule();
 const backgroundModule = new BackgroundModule('background', 'Change background color');
