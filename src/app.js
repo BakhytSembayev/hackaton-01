@@ -45,6 +45,13 @@ headerHTML.innerHTML = `
     <div id="heaer_clock">21:38</div>
   </div>
 `;
+
+setInterval(() => {
+  let date = new Date();
+  document.getElementById('heaer_clock').innerHTML = ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2);
+
+}, 1000);
+
 const footerHTML = document.createElement('footer');
 footerHTML.innerHTML = `
   <p>Приложение разработано в рамках Хакатона #1 в Result School</p>
@@ -54,7 +61,7 @@ root.prepend(headerHTML, footerHTML);
 
 const modalMain = new ItcModal({
   title: 'Коробка рандома',
-  content: '<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <img src=cubeImg alt="" style="display: block; height: auto; width: 150px;"> <p> <span style="font-weight: bold;">Уважаемый, Гость</span>! <br><br> Добро пожаловать в интерактивное путешествие по нашей <br> <span style="font-weight: bold;">"Коробке рандома"</span>. <br><br> Для начала работы щелкни правой кнопкой мыши в любом месте окна и "Поехали!"</p> </div> ',
+  content: '<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; height: auto; max-width: 100%;"> <div class="logo" style="height: 100px; width: 130px; margin: auto;"></div> <p style="padding-left: 20px"> <span style="font-weight: bold;">Уважаемый, Гость</span>! <br><br> Добро пожаловать в интерактивное путешествие по нашей <br> <span style="font-weight: bold;">"Коробке рандома"</span>. <br><br> Для начала работы щелкни правой кнопкой мыши в любом месте окна и "Поехали!"</p> </div> ',
   footerButtons: [
     { class: 'btn btn-cancel', text: 'Закрыть', action: 'cancel' }
   ]
