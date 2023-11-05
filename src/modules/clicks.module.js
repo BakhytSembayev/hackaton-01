@@ -4,7 +4,7 @@ import {ItcModal} from './modal';
 
 export class ClicksModule extends Module {
   constructor(type, text) {
-    super('type', 'text')
+    super('сlicksModule', 'Аналитика выстрелов (кликов)')
   };
   trigger() {
 
@@ -24,7 +24,6 @@ export class ClicksModule extends Module {
       ]
     });
     modal.show();
-    console.log(modal.footerButtons);
 
     document.addEventListener('click', (e) => {
       if (e.target.closest('[data-action="ok"]')) {
@@ -93,7 +92,7 @@ export class ClicksModule extends Module {
                 };
             } else {
                 modal.setTitle('Аналитика выстрелов (кликов). РЕЗУЛЬТАТ.');
-                modal.setBody('<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <img src="../src/assets/cub.png" alt="" style="display: block; height: 125px; width: 125px;"> <span style="font-weight: bold;">ОТЛИЧНО!</span><p id="p-modal" style="padding-left: 20px;"></p></div>');
+                modal.setBody('<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <img src="../src/assets/cub.png" alt="" style="display: block; height: 125px; width: 125px;"> <span style="font-weight: bold;">ОТЛИЧНО!</span><p id="p-modal" style="padding-left: 20px;">...</p></div>');
                 let modalMessage = document.querySelector('#p-modal');
                 modalMessage.textContent = `Ваш результат ${count} выстрела(ов) за ${timeUserEnter} секунд(ы)!`;
                 let removeBtnOk = document.querySelector('.btn-ok');

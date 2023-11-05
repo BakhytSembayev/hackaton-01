@@ -35,7 +35,7 @@ document.addEventListener('contextmenu', function(event) {
 
   // Создаем пункты меню
   const items = [
-    { label: 'Считать клики', action: countClicks },
+    { label: 'Аналитика выстрелов (кликов)', action: countClicks },
     { label: 'Случайная фигура', action: randomShape },
     { label: 'Волны', action: randomParticles }, // Новый пункт меню
     { label: 'Случайный звук', action: randomSound },
@@ -73,7 +73,7 @@ document.addEventListener('click', function(event) {
   
   // Функции для выполнения действий при выборе пунктов меню
   function countClicks() {
-    // Действие при выборе пункта "Считать клики"
+    click.trigger();
     console.log('Считать клики');
   }
   
