@@ -5,8 +5,7 @@ import {ClicksModule} from './modules/clicks.module';
 import { BackgroundModule } from './modules/background.module';
 import { CanvasParticlesModule } from './modules/canvasParticles.module';
 
-let click = new ClicksModule();
-click.trigger();
+
 
 const shapeModule = new ShapeModule();
 const backgroundModule = new BackgroundModule('background', 'Change background color');
@@ -73,6 +72,7 @@ document.addEventListener('click', function(event) {
   
   // Функции для выполнения действий при выборе пунктов меню
   function countClicks() {
+    let click = new ClicksModule();
     click.trigger();
     console.log('Считать клики');
   }
