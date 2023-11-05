@@ -12,21 +12,12 @@ function Notification() {
     this.notificationCount = 4;
 
     this.addItem = function (notification) {
-        console.log(this.elements)
-
-        this.elements.push(notification.item);
+        this.elements.push(notification);
         notification.prev = this.elements.length - 1 > 0 && this.elements[this.elements.length - this.notificationCount - 1];
 
         if (this.elements.length > this.notificationCount) {
-            animateDisappearing.call(notification.prev)
-                .then(() => {
-                    try {
-                        removeItem(notification.prev);
-                        clearTimeout(notification.prev.timeoutID);
-                    } catch (err) {
-                        console.error(err);
-                    }
-                })
+            removeItem(this, notification.prev)
+            clearTimeout(notification.prev.timeoutID)
         }
 
         this.container.prepend(notification.item);
@@ -35,22 +26,22 @@ function Notification() {
                 setContent.call(notification.item);
             });
         notification.timeoutID = setTimeout(() => {
-            animateDisappearing.call(notification.item)
-                .then(() => {
-                    try {
-                        removeItem(notification.item);
-                    } catch (err) {
-                        console.error(err);
-                    }
-                })
+            removeItem(this, notification);
         }, 5000)
     }
 
-    function removeItem(notification) {
-        setTimeout(() => {
-            this.container.removeChild(notification);
-            this.elements = this.elements.filter(e => e !== notification);
-        }, 1000);
+    function removeItem(wrapper, notification) {
+        animateDisappearing.call(notification.item)
+            .then(() => {
+                setTimeout(() => {
+                    try {
+                        wrapper.container.removeChild(notification.item);
+                    } catch (err) {
+                        console.error(err);
+                    }
+                    wrapper.elements = wrapper.elements.filter(e => e !== notification.item);
+                }, 1000);
+            })
     }
 
     return this;
@@ -58,7 +49,6 @@ function Notification() {
 
 function notificationItem() {
     this.item = document.createElement('div');
-    this.item.id = 'i' + (0xffffff * Date.now()).toString(16);
     this.item.classList.add('notification-item');
 
     const title = document.createElement('h4');
@@ -114,10 +104,9 @@ function animateDisappearing() {
     });
 }
 
-
 export class NotificationModule extends Module {
     constructor() {
-        super('notification', 'Random message');
+        super('random-message', 'Случайное сообщение');
         this.notificationContainer = new Notification();
         document.body.prepend(this.notificationContainer.container);
     }

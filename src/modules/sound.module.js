@@ -5,11 +5,11 @@ import { importAll, randomNumber } from '../utils'
 const soundsArray = importAll(require.context('../assets', false, /\.(mp3|ogg|wav)$/));
 
 export class SoundModule extends Module {
-    constructor(type, text) {
-        super(type, text)
+    constructor() {
+        super('random-sound', 'Случайный звук');
     }
     trigger() {
         const audio = new Audio(soundsArray[randomNumber(0, soundsArray.length - 1)]);
-        audio.play()
+        audio.play();
     }
 }

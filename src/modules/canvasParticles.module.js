@@ -2,12 +2,12 @@ import { Module } from '../core/module';
 
 export class CanvasParticlesModule extends Module {
   constructor() {
-    super('canvasParticles', 'Динамический фон в виде волн');
+    super('canvas-particles', 'Волны');
     this.canvas = null;
     this.ctx = null;
     this.frameCount = 0;
-    this.animationFrameId = null; 
-    this.animate = this.animate.bind(this); 
+    this.animationFrameId = null;
+    this.animate = this.animate.bind(this);
   }
 
   initCanvas() {
@@ -34,24 +34,24 @@ export class CanvasParticlesModule extends Module {
       this.animationFrameId = null;
     }
   }
-   
-   animate() {
-    if (!this.ctx) {    
-    console.error("Контекст канваса не инициализирован");
-    return;
-  }
+
+  animate() {
+    if (!this.ctx) {
+      console.error("Контекст канваса не инициализирован");
+      return;
+    }
     this.animationFrameId = requestAnimationFrame(this.animate);
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.ctx.fillStyle = '#9fcdff'; 
+    this.ctx.fillStyle = '#9fcdff';
     this.ctx.beginPath();
-    
+
     let frequency = 0.01;
     let amplitude = 60;
-    let waveSpeed = this.frameCount * 0.03; 
+    let waveSpeed = this.frameCount * 0.03;
 
-    for (let i = 0; i < this.canvas.width; i++) {      
-      let waveHeight = Math.sin(i * frequency + waveSpeed) * amplitude;      
+    for (let i = 0; i < this.canvas.width; i++) {
+      let waveHeight = Math.sin(i * frequency + waveSpeed) * amplitude;
       this.ctx.lineTo(i, this.canvas.height / 2 + waveHeight);
     }
 
@@ -61,10 +61,10 @@ export class CanvasParticlesModule extends Module {
 
     this.frameCount++;
   }
-  trigger() {    
-    if (this.animationFrameId) {      
+  trigger() {
+    if (this.animationFrameId) {
       this.stopAnimating();
-    } else {      
+    } else {
       this.startAnimating();
     }
   }

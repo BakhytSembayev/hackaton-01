@@ -3,7 +3,7 @@ export function randomNumber(min, max) {
 }
 
 export const getRandomColor = () => {
-  return `${Math.round(0xffffff * Math.random()).toString(16)}`;
+  return `#${Math.round(0xffffff * Math.random()).toString(16)}`;
 }
 
 export const importAll = (_context) => {
