@@ -1,5 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap'); */
-
 @font-face {
   font-family: Stolzl;
   src: url("../src/assets/Stolzl-Regular.ttf");
@@ -27,6 +25,28 @@
     width: 350px;
     height: 350px;
     margin: auto;
+}
+
+header {
+    width: 100%;
+    height: 20vh;
+    padding: 0.3rem 2rem 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper_heaer_clock {
+    margin: auto 0;
+}
+
+#heaer_clock, #timer  {
+    font-size: 2.5rem;
+    margin: auto 0;
+}
+
+.counterNumber, .counter {
+    font-size: 1.75rem;
+=======
 }
 
 header {
@@ -116,7 +136,6 @@ body {
   display: none;
   list-style: none;
   padding: 5px;
-
 }
 
 .menu.open {
@@ -132,6 +151,75 @@ body {
   border-radius: inherit;
 }
 
+.heaer_help {
+  font-size: 2.5rem;
+  margin: auto 0;
+  border: none;
+  background:none;
+}
+.heaer_help:hover {
+  color: orange;
+}
+.logo {
+  background-image: url('../src/assets/cub.png');
+  width: 100px;
+  height: 100px;
+  margin: auto 0;
+}
+h1 {
+  font-size: 2.5rem;
+  margin: auto 0;
+  padding-left: 2rem;
+}
+.heaer_logo {
+  display: flex;
+  justify-content: space-between;
+}
+section {
+  width: 100%;
+  height: 70vh;
+}
+footer {
+  width: 100%;
+  height: 10vh;
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+p {
+  margin: auto 0;
+}
+body {
+  background-image: url('../src/assets/bg.jpg');
+  font-size: 14px;
+  font-family: Stolzl;
+  height: 100vh;
+  width: 100%;
+  padding: 0 2rem 0 2rem;
+}
+.menu {
+  position: fixed;
+  z-index: 1000;
+  width: 150px;
+  background-image: url('../src/assets/bg.jpg');
+  border: 1px solid #1b1a1a;
+  box-shadow: 0 0 7px 0 rgb(0 0 0 / 30%);
+  border-radius: 5px;
+  display: none;
+  list-style: none;
+  padding: 5px;
+}
+.menu.open {
+  display: block;
+}
+.menu .menu-item {
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #1b1a1a;
+  cursor: pointer;
+  transition: background-color .2s ease-in;
+  border-radius: inherit;
+}
 .menu .menu-item:hover {
   background: orange;
 }

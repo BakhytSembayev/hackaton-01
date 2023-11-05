@@ -3,3 +3,7 @@ node_modules
 .cache
 dist
 .DS_Store
+pnpm-lock.yaml
+babel.config.json
+package-lock.json
+package.json
