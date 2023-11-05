@@ -4,6 +4,8 @@ import '../src/modules/modal.css'
 import {ClicksModule} from './modules/clicks.module';
 import { BackgroundModule } from './modules/background.module';
 import { CanvasParticlesModule } from './modules/canvasParticles.module';
+import {ItcModal} from './modules/modal';
+
 
 
 
@@ -150,3 +152,21 @@ footerHTML.append(textFooterHTML);
 const developerFooterHTML = document.createElement('p');
 developerFooterHTML.textContent = '72 учебная группа TEAM_#3';
 footerHTML.append(developerFooterHTML);
+
+const modalMain = new ItcModal({
+  title: 'Коробка рандома',
+  content: '<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <img  src="../src/assets/cub.png" alt="" style="display: block; height: auto; width: 150px;"> <p> <span style="font-weight: bold;">Уважаемый, Гость</span>! <br><br> Добро пожаловать в интерактивное путешествие по нашей <br> <span style="font-weight: bold;">"Коробке рандома"</span>. <br><br> Для начала работы щелкни правой кнопкой мыши в любом месте окна и "Поехали!"</p> </div> ',
+  footerButtons: [
+    {class: 'btn btn-cancel', text: 'Закрыть', action: 'cancel'}
+  ]
+});
+modalMain.show();
+
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.heaer_help')) {
+    modalMain.show();
+  };
+  if (e.target.closest('[data-action="cancel"]')) {
+    modalMain.hide();
+  };
+});

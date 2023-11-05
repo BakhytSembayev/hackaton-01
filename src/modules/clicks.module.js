@@ -17,7 +17,7 @@ export class ClicksModule extends Module {
 
     const modal = new ItcModal({
       title: 'Коробка рандома. Аналитика выстрелов (кликов)',
-      content: '<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <p style="padding-left: 20px;"> <span style="font-weight: bold;">Аналитика выстрелов (кликов)</span>! <br><br> Вам необходимо ввести желаемый интервал времени, за который будут посчитаны ваши выстрелы (клики). <br>По завершению времени будет выведен ваш результат.<span style="font-weight: bold;"> Удачи!</span><br><br><br></div><div style="display: flex; flex-direction: column; height: auto; max-width: 100%;"><p style="padding: 5px 10px;" for="input">Введите желаемый интервал в секундах. Максимальное время 120 секунд:</p><br><input style="border-radius: 5px; margin: auto; padding: 5px;" type="text" id="inputModal" name="input" /></div>',
+      content: '<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"><img src="../src/assets/cub.png" alt="" style="display: block; height: 125px; width: 125px;"><p style="padding-left: 20px;"> <span style="font-weight: bold;">Аналитика выстрелов (кликов)</span>! <br><br> Вам необходимо ввести желаемый интервал времени, за который будут посчитаны ваши выстрелы (клики). <br>По завершению времени будет выведен ваш результат.<span style="font-weight: bold;"> Удачи!</span><br><br><br></div><div style="display: flex; flex-direction: column; height: auto; max-width: 100%;"><p style="padding: 5px 10px;" for="input">Введите желаемый интервал в секундах. Максимальное время 120 секунд:</p><br><input style="border-radius: 5px; margin: auto; padding: 5px;" type="text" id="inputModal" name="input" /></div>',
       footerButtons: [
         { class: 'btn btn-ok', text: 'Принять', action: 'ok' },
         {class: 'btn btn-cancel', text: 'Закрыть', action: 'cancel'}
@@ -34,7 +34,7 @@ export class ClicksModule extends Module {
         let timeUser = timeUserEnter?.trim();
 
         if (timeUser > 120 || !timeUser?.match(/^\d+$/) || timeUser == 0) {
-          modal.setBody('<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"> <p style="padding-left: 20px;"> Вы задали некорректный интервал времени. Повторите попытку!</p></div>');
+          modal.setBody('<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;"><img src="../src/assets/cub.png" alt="" style="display: block; height: 125px; width: 125px;"><p style="padding-left: 20px;"> Вы задали некорректный интервал времени. Повторите попытку!</p></div>');
           let removeBtnOk = document.querySelector('.btn-ok');
           removeBtnOk.style.display = 'none';
           modal.show();
@@ -48,7 +48,7 @@ export class ClicksModule extends Module {
             sectionHTML.append(timerClock);
         
             const clickedCounter = document.createElement('div');
-            clickedCounter.textContent = 'Количество кликов: ';
+            clickedCounter.textContent = 'Количество: ';
             clickedCounter.className = 'counter';
             sectionHTML.append(clickedCounter);
     
@@ -94,7 +94,7 @@ export class ClicksModule extends Module {
                 };
             } else {
                 modal.setTitle('Аналитика выстрелов (кликов). РЕЗУЛЬТАТ.');
-                modal.setBody('<div style="display: flex; flex-wrap: nowrap; height: auto; max-width: 100%;">  <span style="font-weight: bold;">ОТЛИЧНО!</span><p id="p-modal" style="padding-left: 20px;">...</p></div>');
+                modal.setBody('<div style="display: flex; flex-wrap: wrap; height: auto; max-width: 100%;"><img src="../src/assets/cub.png" alt="" style="display: block; height: 125px; width: 125px;"><div style="display: flex; flex-direction: column; height: auto; max-width: 100%;"><p style="padding-left: 20px; text-align: center; font-weight: bold;">ОТЛИЧНО!</p><p id="p-modal" style="padding-left: 20px;">...</p></div></div>');
                 let modalMessage = document.querySelector('#p-modal');
                 modalMessage.textContent = `Ваш результат ${count} выстрела(ов) за ${timeUserEnter} секунд(ы)!`;
                 let removeBtnOk = document.querySelector('.btn-ok');

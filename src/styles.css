@@ -24,8 +24,8 @@
 
 .target_lick {
     background-image: url('../src/assets/target.png');
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
     margin: auto;
 }
 
@@ -41,9 +41,13 @@ header {
   margin: auto 0;
 }
 
-#heaer_clock, #timer, .counterNumber, .counter {
+#heaer_clock, #timer  {
   font-size: 2.5rem;
   margin: auto 0;
+}
+
+.counterNumber, .counter {
+    font-size: 1.75rem;
 }
 
 .heaer_help {

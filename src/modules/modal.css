@@ -25,7 +25,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 130rem;
   margin: var(--itc-modal-margin);
   background-color: #fff;
   background-clip: padding-box;
@@ -72,7 +72,7 @@
 }
 
 .itc-modal-btn-close {
-    float: right;
+  float: right;
   color: #000;
   font-weight: 700;
   font-size: 24px;
