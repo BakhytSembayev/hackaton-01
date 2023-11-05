@@ -78,6 +78,8 @@ export class ClicksModule extends Module {
       } else if (!timeUserEnter === 0 || timeUserEnter === 0 || timeUserEnter.match(/^\d+$/)) {
         alert(`Ваш результат ${count} выстрела(ов) за ${timeUserEnter} секунд(ы)!`);
         document.querySelector('section').replaceChildren();
+        document.querySelector('section').remove();
+
         let filteredList = document.querySelectorAll('.clickPrint');
         filteredList.forEach(function (element) {
           element.parentNode.removeChild(element);
