@@ -2,7 +2,7 @@ import { Module } from '../core/module';
 
 export class CanvasParticlesModule extends Module {
   constructor() {
-    super('canvas-particles', 'Волны');
+    super('canvas-particles', 'Волна стоп');
     this.canvas = null;
     this.ctx = null;
     this.frameCount = 0;

@@ -2,9 +2,17 @@ import { Module } from '../core/module'
 
 export class ClicksModule extends Module {
   constructor(type, text) {
-    super('random-click', 'Аналитика кликов')
-  };
+    super('random-click', 'Аналитика кликов');
+  }
+
   trigger() {
+    let timeUserEnter = prompt('Введите желаемое время в секундах. Максимальное время 120 сек');
+
+    // Check if the user clicked "Cancel" or provided invalid input
+    if (timeUserEnter === null || !timeUserEnter.match(/^\d+$/) || +timeUserEnter === 0) {
+      alert('Вы задали некорректный интервал времени. Повторите попытку!');
+      return;
+    }
 
     function timeTranslation(timeUser) {
       let m = Math.floor(timeUser % 3600 / 60);
@@ -12,8 +20,7 @@ export class ClicksModule extends Module {
 
       return ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
     };
-
-    let timeUserEnter = prompt('Введите желаемое время в секундах. Максимальное время 120 сек');
+        
     let timeUser = timeUserEnter.trim();
 
     id: if (timeUser > 120 || !timeUser.match(/^\d+$/) || timeUser == 0) {
@@ -75,7 +82,8 @@ export class ClicksModule extends Module {
           clickPrint.style.left = appDiv.pageX - clickPrint.offsetWidth + 'px';
         };
 
-      } else if (!timeUserEnter === 0 || timeUserEnter === 0 || timeUserEnter.match(/^\d+$/)) {
+      } else if (timeUserEnter !== 0 && timeUserEnter.match(/^\d+$/)) {
+
         alert(`Ваш результат ${count} выстрела(ов) за ${timeUserEnter} секунд(ы)!`);
         document.querySelector('section').replaceChildren();
         document.querySelector('section').remove();
